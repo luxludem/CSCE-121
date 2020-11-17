@@ -59,9 +59,6 @@ int main()
 
 		cout << "Do you want to run another set of tests? Enter 'y' or 'n'" << endl;
 		cin >> test;
-
-	
-
 	}
 
 	system("pause");
