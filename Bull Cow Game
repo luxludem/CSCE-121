@@ -1,0 +1,80 @@
+#include<iostream>
+#include<math.h>
+#include<string>
+#include<vector>
+using namespace std;
+
+int main()
+{
+
+	int seed;
+	cout << "Enter your lucky number" << endl;
+	cin >> seed;
+	srand(seed);
+
+	string user = " ";
+	vector<int> UserNum(4);
+	vector<int> randomNum(4);
+	randomNum.at(0) = rand() % 10;
+	randomNum.at(1) = rand() % 10;
+	randomNum.at(2) = rand() % 10;
+	randomNum.at(3) = rand() % 10;
+	//cout << randomNum.at(0);
+	//cout << randomNum.at(1);
+	//cout << randomNum.at(2);
+	//cout << randomNum.at(3) << endl;
+	int bull = 0;
+	int cow = 0;
+	while (bull != 4)
+	{
+		bull = 0;
+		cow = 0;
+		UserNum.at(0) = 0;
+		UserNum.at(1) = 0;
+		UserNum.at(2) = 0;
+		UserNum.at(3) = 0;
+		cout << "Enter a 4 digit number :" << endl;
+		cin >> user;
+
+		UserNum.at(0) = (int)user.at(0) - 48;
+		UserNum.at(1) = (int)user.at(1) - 48;
+		UserNum.at(2) = (int)user.at(2) - 48;
+		UserNum.at(3) = (int)user.at(3) - 48;
+
+		cout << UserNum.at(0) << endl;
+		cout << UserNum.at(1) << endl;
+		cout << UserNum.at(2) << endl;
+		cout << UserNum.at(3) << endl;
+
+		for (int i = 0; i < 4; i++)
+		{
+			if (UserNum.at(i) == randomNum.at(i))
+				bull = bull + 1;
+		}
+
+		if (UserNum.at(0) == randomNum.at(1) || UserNum.at(0) == randomNum.at(2) || UserNum.at(0) == randomNum.at(3))
+		{
+			cow = cow + 1;
+		}
+		if (UserNum.at(1) == randomNum.at(0) || UserNum.at(1) == randomNum.at(2) || UserNum.at(1) == randomNum.at(3))
+		{
+			cow = cow + 1;
+		}
+		if (UserNum.at(2) == randomNum.at(1) || UserNum.at(2) == randomNum.at(0) || UserNum.at(2) == randomNum.at(3))
+		{
+			cow = cow + 1;
+		}
+		if (UserNum.at(3) == randomNum.at(1) || UserNum.at(3) == randomNum.at(2) || UserNum.at(3) == randomNum.at(0))
+		{
+			cow = cow + 1;
+		}
+
+
+		cout << bull << " bull and " << cow << " cows " << endl;
+	}
+
+	cout << "4 Bulls!" << endl;
+	system("pause");
+
+
+}
