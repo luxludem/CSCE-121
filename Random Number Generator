@@ -1,0 +1,64 @@
+#include<iostream>
+#include<vector>
+#include<math.h>
+using namespace std;
+int main()
+{
+	char test = 'y';
+	while (test == 'y')
+	{
+		int min;
+		int max;
+		int	randnum;
+		int seed;
+
+		cout << "Enter the Minimum value:";
+		cin >> min;
+		cout << "Enter the maximum value:";
+		cin >> max;
+		cout << "Enter the number of random numbers to generate:";
+		cin >> randnum;
+		cout << "Enter the random seed:";
+		cin >> seed;
+		vector<int>lab(randnum);
+		srand(seed);
+		for (int i = 0; i < randnum; i++)
+		{
+			lab.at(i) = rand() % (max - min + 1) + min;
+
+		}
+		cout << "First 10: ";
+		for (int i = 0; i < 10; i++)
+		{
+			cout <<lab.at(i) << " ";
+
+		}
+		cout << endl;
+		vector<int>sum(lab.size());
+		for (int k = 0; k < lab.size(); k++)
+		{
+			if (lab.at(k) <= max)
+				sum.at(lab.at(k)) = sum.at(lab.at(k)) + 1;
+
+		}
+		cout << "count:" << endl;
+
+		for (int j = min; j <= max; j++)
+		{
+
+
+
+			cout << j << ":" << sum.at(j) << endl;
+
+		}
+
+		
+
+		cout << "Do you want to run another set of tests? Enter 'y' or 'n'" << endl;
+		cin >> test;
+
+
+	}
+
+	system("pause");
+}
