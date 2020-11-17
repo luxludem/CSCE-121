@@ -10,7 +10,7 @@ int main()
 
 		int min;
 		int max;
-		int	randnum;
+		int randnum;
 		int seed;
 
 		cout << "Enter the Minimum value:";
